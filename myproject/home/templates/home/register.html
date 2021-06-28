@@ -1,0 +1,13 @@
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+<h1>Trang chủ Register</h1>
+    <form action='{% url 'home:registerUser' %}' method='post'>
+    {% csrf_token %}
+    {{ rU.as_p }}
+    <input type='submit'>
+    </form>
+</body>
+</html>
