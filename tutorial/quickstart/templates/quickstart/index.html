@@ -1,0 +1,8 @@
+{% extends 'quickstart/base.html' %}
+{% block content %}
+    <form action='{% url 'quickstart:quick' %}' method='POST'>
+        {% csrf_token %}
+        {{ sp.as_p }}
+        <button type='submit'>Gửi</button>
+    </form>
+{% endblock %}

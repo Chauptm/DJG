@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Index</title>
+    </head>
+    <body>
+    {% for item in list %}
+        {% if item.parent is None %}
+            <ul>
+                <li>{{item.name}}</li>
+                {% for item2 in list %}
+                    {% if item2.parent.name == item.name %}
+                        <ul>
+                            <li>{{item2.name}}</li>
+                        </ul>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endfor %}
+    </body>
+</html>

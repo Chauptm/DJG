@@ -1,0 +1,23 @@
+<html>
+    <head>
+        {% load static %}
+        <title>Home</title>
+        <link rel="stylesheet" href="{%static 'home/style.css'%}">
+    </head>
+    <body>
+
+        <div class='content'>
+            {% block content %}
+
+            {% endblock %}
+        </div>
+
+        <div class='menu'>
+            <ul>
+                <li><a href='{% url 'quickstart:quick' %}'> Quickstart</li>
+                <li><a href='{% url 'post:blog' %}'> Post</li>
+                <li><a href='{% url 'products:products' %}'> Products</li> 
+            </ul>
+        </div> 
+    </body>
+</html>

@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Upload</title>
+    </head>
+
+    <body>
+        <p>Hello</p>
+        <form action='{% url 'uploadModel:getFile' %}' method='post' enctype='multipart/form-data'>
+            {% csrf_token %}
+            {{ uL.as_p }}
+            <input type='submit'>
+        </form>
+    </body>
+</html>
