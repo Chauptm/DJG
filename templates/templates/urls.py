@@ -17,6 +17,7 @@ Including another URLconf
 # from snippets import urls
 # from django.conf.urls import url
 from django.urls import path, include
+from django.contrib import admin
 # from rest_framework import routers
 # from quickstart import views
 # router = routers.DefaultRouter()
@@ -28,6 +29,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('snippets.urls')),
+    path('admin/', admin.site.urls)
     # path('', include(router.urls)),
     # path('api-auth1/', include('rest_framework.urls', namespace='rest_framework'))
     
