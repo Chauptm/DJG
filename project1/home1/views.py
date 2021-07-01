@@ -14,7 +14,7 @@ from rest_framework import viewsets
 from django.contrib.auth.models import User
 from home1.permission import IsOwnerOrReadOnly
 from home1.filters import IsOwnerFilterBackend
-from home1.pagination import PaginationSet
+# from home1.pagination import PaginationSet
 from django_filters.rest_framework import DjangoFilterBackend
 
 

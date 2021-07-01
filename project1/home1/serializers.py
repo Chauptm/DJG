@@ -12,7 +12,7 @@ class UserSerializers(serializers.HyperlinkedModelSerializer):
 
 class ProductSerializers(serializers.HyperlinkedModelSerializer):
     def validate_name(self, value):
-        if 'chau_' not in value:
+        if value.find('chau_')!=0:
         	raise serializers.ValidationError("Không theo định dạng")
         return value
 
