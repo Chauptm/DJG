@@ -1,4 +1,4 @@
-from django.core import paginator
+
 from django.http import request
 from django.shortcuts import render
 from django.core.paginator import Paginator
@@ -12,3 +12,4 @@ def list(request):
     page_obj= paginator.get_page(page_number)
 
     return render(request, 'blog/image.html', {'page_obj':page_obj})
+    # return page_obj.object_list()

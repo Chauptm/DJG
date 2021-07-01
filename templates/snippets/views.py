@@ -102,6 +102,7 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
 class SnippetViewSet(viewsets.ModelViewSet):
     queryset = Snippet.objects.all()
     serializer_class = SnippetSerializer
+    
     # authentication_classes=[SessionAuthentication, BaseAuthentication]
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
                           IsOwnerOrReadOnly]

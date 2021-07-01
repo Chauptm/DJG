@@ -13,19 +13,40 @@ from rest_framework.decorators import action
 from rest_framework import viewsets
 from django.contrib.auth.models import User
 from home1.permission import IsOwnerOrReadOnly
-from rest_framework import permissions
+from home1.filters import IsOwnerFilterBackend
+from home1.pagination import PaginationSet
+from django_filters.rest_framework import DjangoFilterBackend
+
+
 # Create your views here.
 class UserViewsets(viewsets.ReadOnlyModelViewSet):
     serializer_class= UserSerializers
     queryset= User.objects.all()
+
 class ProductListDetail(viewsets.ModelViewSet):
     serializer_class= ProductSerializers
-    queryset= Product.objects.all()
+    queryset = Product.objects.all()
+    filter_backends=[DjangoFilterBackend, IsOwnerFilterBackend]
+    filterset_fields = ['name']
+    # pagination_class=[PaginationSet]
+
+    # def get_queryset(self):
+
+    #     username = self.request.user
+    #     queryset = Product.objects.filter(owner=username)
+    #     return queryset
+    
+    
+
 
     authentication_classes=[SessionAuthentication, BasicAuthentication]
     # authentication_classes=[TokenAuthentication]
     # permission_classes=[IsAuthenticated]
     permission_classes = [IsOwnerOrReadOnly, IsAuthenticated]
+    # pagination_class=[PageNumber]
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
     # lookup_field='id'
     # def get(self, request, id=None):
     #     if id:

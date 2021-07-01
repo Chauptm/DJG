@@ -8,4 +8,5 @@ router.register(r'User', views.UserViewsets)
 router.register(r'Product', views.ProductListDetail)
 urlpatterns = [
     path('',include(router.urls)),
+
 ]
