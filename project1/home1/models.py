@@ -7,7 +7,7 @@ class Product(models.Model):
     name= models.TextField(default='abc')
     status= models.TextField(default='hello')
     owner = models.ForeignKey('auth.User', related_name='snippets', on_delete=models.CASCADE, null=True)
-    
+    date= models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.name
 
