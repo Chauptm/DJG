@@ -21,6 +21,7 @@ from home1 import views
 from rest_framework_simplejwt import views as jwt_views
 routers= DefaultRouter()
 routers.register(r'product', views.ProductViewset, basename='product')
+# routers.register(r'Sendmail', )
 
 
 urlpatterns = [
