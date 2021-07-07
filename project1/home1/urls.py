@@ -6,7 +6,7 @@ from home1.auth import CustomAuthToken
 
 router= DefaultRouter()
 router.register(r'User', views.UserViewsets)
-router.register(r'Product', views.ProductListDetail)
+router.register(r'Product', views.ProductListDetail, basename='product')
 urlpatterns = [
     path('',include(router.urls)),
     path('gettoken/', CustomAuthToken.as_view())

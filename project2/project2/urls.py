@@ -19,8 +19,10 @@ from rest_framework import routers
 from rest_framework.routers import DefaultRouter
 from home1 import views
 from rest_framework_simplejwt import views as jwt_views
+# from rest_framework.authtoken.views import obtain_auth_token
+from home1.auth import AuthTokenCustom
 routers= DefaultRouter()
-routers.register(r'product', views.ProductViewset, basename='product')
+routers.register(r'Person', views.PersonViewset, basename='person')
 # routers.register(r'Sendmail', )
 
 
@@ -32,7 +34,12 @@ urlpatterns = [
     path('api/token/verify/', jwt_views.TokenVerifyView.as_view(), name='token_verify'),
 ]
 
-# urlpatterns += [
-#     path('api-auth/', include('rest_framework.urls')),
-# ]
+urlpatterns += [
+    path('api-auth/', include('rest_framework.urls')),
+]
+
+urlpatterns += [
+    path('gettoken/', AuthTokenCustom.as_view()),
+]
+
 
